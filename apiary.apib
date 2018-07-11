@@ -19,7 +19,7 @@ Polls is a simple API allowing consumers to view polls and vote in them.
             ]
         }
 
-### Check [POST]
+### ADD_TEAM [POST]
 
 You may create your own question using this action. It takes a JSON
 object containing a question and a collection of answers in the
@@ -28,10 +28,8 @@ form of choices.
 + Request (application/json)
 
         {
-            "url": "https://localhost:5000/count",
-            "invocationParameters": {lato1:5, lato2:7},
-            "expectedResultData": {"count": 3},
-            "expectedResultStatus": 200 
+            "name": "string",
+            "is_still_in": boolean
         }
 
 
@@ -44,9 +42,25 @@ form of choices.
     + Body
     
             { 
-                urlChecked: url,
-                resultData: null,
-                resultStatus: null,
-                statusTestPassed: null,
-                resultDataAsExpected: null
+                "id": 0,
+                "name":"string",
+                "is_still_in": boolean
             }
+            
+### EDIT_TEAM [PUT]
+
++ Request(application/json)
+
+        {
+            "id": 0,
+            "name":"string",
+            "is_still_in": boolean
+        }
+
++ Response 200(application/json)
+
+        {
+            "id": 0,
+            "name":"string",
+            "is_still_in": boolean
+        }
