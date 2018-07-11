@@ -1,0 +1,155 @@
+FORMAT: 1A
+HOST: https://obscure-stream-80481.herokuapp.com
+
+# zappo
+
+Polls is a simple API allowing consumers to view polls and vote in them.
+
+## TEAMS Collection [/teams]
+
+### GET_ALL_TEAMS [GET]
+
++ Response 200 (application/json)
+
+        {
+            "teams": [
+                "id": 0,
+                "name":"string",
+                "is_still_in": boolean,
+                "matches": [
+                    {
+                        "opponent": idTeam,
+                        "outcome": "result(W,D,L)"
+                    }
+                ]
+            ]
+        }
+
+### ADD_TEAM [POST]
+
++ Request (application/json)
+
+        {
+            "name": "string",
+            "is_still_in": boolean,
+            "matches": [
+                    {
+                        "opponent": idTeam,
+                        "outcome": "result(W,D,L)"
+                    }
+                ]
+        }
+
+
++ Response 200(application/json)
+
+    + Headers
+
+            Location: /check
+
+    + Body
+    
+            { 
+                "id": 0,
+                "name":"string",
+                "is_still_in": boolean
+                "matches": [
+                    {
+                        "opponent": idTeam,
+                        "outcome": "result(W,D,L)"
+                    }
+                ]
+            }
+            
+### EDIT_TEAM [PUT]
+
++ Request(application/json)
+
+        {
+            "id": 0,
+            "name":"string",
+            "is_still_in": boolean,
+            "matches": [
+                    {
+                        "opponent": idTeam,
+                        "outcome": "result(W,D,L)"
+                    }
+                ]
+        }
+
++ Response 200(application/json)
+
+        {
+            "id": 0,
+            "name":"string",
+            "is_still_in": boolean,
+            "matches": [
+                    {
+                        "opponent": idTeam,
+                        "outcome": "result(W,D,L)"
+                    }
+                ]
+        }
+        
+
+
+## MATCHES COLLECTION [/matches]
+
+### GET_ALL_MATCHES [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 0
+            "opponent": 0,
+            "outcome": "result(W,D,L)"
+        
+        }
+
+### ADD_MATCH [POST]
++ Request(application/json)
+
+        {
+            "opponent": 0,
+            "outcome": "result(W,D,L)"
+        }
+
+
++ Response 200(application/json)
+
+    + Headers
+
+            Location: /check
+
+    + Body
+    
+            {
+                "id":0
+                "opponent": 0,
+                "outcome": "result(W,D,L)"
+            }
+            
+            
+### EDIT_MATCH [PUT]
+
++ Request(application/json)
+
+        {
+            "id":0,
+            "opponent": 0,
+            "outcome": "result(W,D,L)"
+        }
+
+
++ Response 200(application/json)
+
+    + Headers
+
+            Location: /check
+
+    + Body
+    
+            {
+                "opponent": 0,
+                "outcome": "result(W,D,L)"
+            }
