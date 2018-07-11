@@ -5,14 +5,18 @@ HOST: https://obscure-stream-80481.herokuapp.com
 
 Polls is a simple API allowing consumers to view polls and vote in them.
 
-## Questions Collection [/count]
+## Questions Collection [/teams]
 
-### Count [GET]
+### TEAMS [GET]
 
 + Response 200 (application/json)
 
         {
-            "count": 3
+            "teams": [
+                "id": 0,
+                "name":"string",
+                "is_still_in": boolean
+            ]
         }
 
 ### Check [POST]
