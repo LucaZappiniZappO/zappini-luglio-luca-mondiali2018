@@ -5,9 +5,9 @@ HOST: https://obscure-stream-80481.herokuapp.com
 
 Polls is a simple API allowing consumers to view polls and vote in them.
 
-## Questions Collection [/teams]
+## TEAMS Collection [/teams]
 
-### TEAMS [GET]
+### GET_ALL_TEAMS [GET]
 
 + Response 200 (application/json)
 
@@ -15,21 +15,29 @@ Polls is a simple API allowing consumers to view polls and vote in them.
             "teams": [
                 "id": 0,
                 "name":"string",
-                "is_still_in": boolean
+                "is_still_in": boolean,
+                "matches": [
+                    {
+                        "opponent": idTeam,
+                        "outcome": "result(W,D,L)"
+                    }
+                ]
             ]
         }
 
 ### ADD_TEAM [POST]
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
-
 + Request (application/json)
 
         {
             "name": "string",
-            "is_still_in": boolean
+            "is_still_in": boolean,
+            "matches": [
+                    {
+                        "opponent": idTeam,
+                        "outcome": "result(W,D,L)"
+                    }
+                ]
         }
 
 
@@ -45,6 +53,12 @@ form of choices.
                 "id": 0,
                 "name":"string",
                 "is_still_in": boolean
+                "matches": [
+                    {
+                        "opponent": idTeam,
+                        "outcome": "result(W,D,L)"
+                    }
+                ]
             }
             
 ### EDIT_TEAM [PUT]
@@ -54,7 +68,13 @@ form of choices.
         {
             "id": 0,
             "name":"string",
-            "is_still_in": boolean
+            "is_still_in": boolean,
+            "matches": [
+                    {
+                        "opponent": idTeam,
+                        "outcome": "result(W,D,L)"
+                    }
+                ]
         }
 
 + Response 200(application/json)
@@ -62,5 +82,74 @@ form of choices.
         {
             "id": 0,
             "name":"string",
-            "is_still_in": boolean
+            "is_still_in": boolean,
+            "matches": [
+                    {
+                        "opponent": idTeam,
+                        "outcome": "result(W,D,L)"
+                    }
+                ]
         }
+        
+
+
+## MATCHES COLLECTION [/matches]
+
+### GET_ALL_MATCHES [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 0
+            "opponent": 0,
+            "outcome": "result(W,D,L)"
+        
+        }
+
+### ADD_MATCH [POST]
++ Request(application/json)
+
+        {
+            "opponent": 0,
+            "outcome": "result(W,D,L)"
+        }
+
+
++ Response 200(application/json)
+
+    + Headers
+
+            Location: /check
+
+    + Body
+    
+            {
+                "id":0
+                "opponent": 0,
+                "outcome": "result(W,D,L)"
+            }
+            
+            
+### EDIT_MATCH [PUT]
+
++ Request(application/json)
+
+        {
+            "id":0,
+            "opponent": 0,
+            "outcome": "result(W,D,L)"
+        }
+
+
++ Response 200(application/json)
+
+    + Headers
+
+            Location: /check
+
+    + Body
+    
+            {
+                "opponent": 0,
+                "outcome": "result(W,D,L)"
+            }
