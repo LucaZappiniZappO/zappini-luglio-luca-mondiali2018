@@ -1,0 +1,26 @@
+{
+  "name": "zappini-luglio-luca-mondiali2018",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucaZappiniZappO/zappini-luglio-luca-mondiali2018.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LucaZappiniZappO/zappini-luglio-luca-mondiali2018/issues"
+  },
+  "homepage": "https://github.com/LucaZappiniZappO/zappini-luglio-luca-mondiali2018#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "querystring": "^0.2.0",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
+  }
+}
