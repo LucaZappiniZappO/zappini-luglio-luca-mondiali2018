@@ -1,0 +1,48 @@
+FORMAT: 1A
+HOST: https://obscure-stream-80481.herokuapp.com
+
+# zappo
+
+Polls is a simple API allowing consumers to view polls and vote in them.
+
+## Questions Collection [/count]
+
+### Count [GET]
+
++ Response 200 (application/json)
+
+        {
+            "count": 3
+        }
+
+### Check [POST]
+
+You may create your own question using this action. It takes a JSON
+object containing a question and a collection of answers in the
+form of choices.
+
++ Request (application/json)
+
+        {
+            "url": "https://localhost:5000/count",
+            "invocationParameters": {lato1:5, lato2:7},
+            "expectedResultData": {"count": 3},
+            "expectedResultStatus": 200 
+        }
+
+
++ Response 200(application/json)
+
+    + Headers
+
+            Location: /check
+
+    + Body
+    
+            { 
+                urlChecked: url,
+                resultData: null,
+                resultStatus: null,
+                statusTestPassed: null,
+                resultDataAsExpected: null
+            }
